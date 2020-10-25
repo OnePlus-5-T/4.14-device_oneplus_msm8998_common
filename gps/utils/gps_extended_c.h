@@ -29,6 +29,8 @@
 #ifndef GPS_EXTENDED_C_H
 #define GPS_EXTENDED_C_H
 
+#define sockaddr_storage __kernel_sockaddr_storage
+
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdlib.h>
