@@ -127,6 +127,7 @@ TARGET_VENDOR_PROP += $(PLATFORM_PATH)/vendor.prop
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS := $(PLATFORM_PATH)
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_UI_LIB := librecovery_ui_custom
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oneplus
