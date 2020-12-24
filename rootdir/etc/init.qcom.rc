@@ -528,6 +528,12 @@ on property:sys.shutdown.requested=*
     stop vendor.cnss-daemon
     stop vendor.per_proxy
 
+on property:sys.button_backlight.on=true
+    write /sys/class/leds/button-backlight/brightness 255
+
+on property:sys.button_backlight.on=false
+    write /sys/class/leds/button-backlight/brightness 0
+
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
