@@ -349,6 +349,10 @@ on boot
     chown system system /proc/tri-state-key/keyCode_bottom
     chmod 0660 /proc/tri-state-key/keyCode_bottom
 
+    # Allow system apps to select display color gamut
+    chown system system /sys/devices/virtual/graphics/fb0/srgb
+    chown system system /sys/devices/virtual/graphics/fb0/dci_p3
+
 on charger
     start dashd
     start vendor.power_off_alarm
