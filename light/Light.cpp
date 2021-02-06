@@ -18,6 +18,9 @@
 
 #include "Light.h"
 
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+
 #include <android-base/logging.h>
 
 namespace {
@@ -198,12 +201,25 @@ void Light::setButtonBacklight(const LightState& state) {
 
 void Light::setBatteryLight(const LightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
+
+    char value[1] = {0};
+    int len = __system_property_get("persist.sys.disable.rgb", value);
+    if (len > 0) {
+        return;
+    }
+
     mBatteryState = state;
     setSpeakerBatteryLightLocked();
 }
 
 void Light::setNotificationLight(const LightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
+
+    char value[1] = {0};
+    int len = __system_property_get("persist.sys.disable.rgb", value);
+    if (len > 0) {
+        return;
+    }
 
     uint32_t brightness, color, rgb[3];
     LightState localState = state;
