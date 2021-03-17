@@ -119,6 +119,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_USERIMAGES_USE_EXT4 := true
 
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+TARGET_USES_INTERACTION_BOOST := true
+
 # Properties
 TARGET_SYSTEM_EXT_PROP += $(PLATFORM_PATH)/system_ext.prop
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
