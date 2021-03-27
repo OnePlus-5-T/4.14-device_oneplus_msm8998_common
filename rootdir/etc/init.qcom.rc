@@ -204,6 +204,7 @@ on post-fs
     chown system system /dev/block/mmcblk0p21
     chmod 660 /dev/block/mmcblk0p21
     chown system system /sys/class/timed_output/vibrator/vmax_mv
+    chown system system /sys/class/timed_output/vibrator/vtg_level
     chown system system /sys/class/timed_output/vibrator/wf_s0
     chown system system /sys/class/timed_output/vibrator/wf_s1
     chown system system /sys/class/timed_output/vibrator/wf_s2
