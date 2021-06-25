@@ -538,6 +538,9 @@ on property:sys.button_backlight.on=true
 on property:sys.button_backlight.on=false
     write /sys/class/leds/button-backlight/brightness 0
 
+on early-boot
+    setprop qemu.hw.mainkeys ${persist.qemu.hw.mainkeys}
+
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
