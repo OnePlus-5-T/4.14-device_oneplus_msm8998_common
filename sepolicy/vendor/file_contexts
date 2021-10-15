@@ -50,3 +50,6 @@
 /data/vendor/oemnvitems/4678_0                                  u:object_r:oem_nv_data_file:s0
 /data/vendor/oemnvitems/4678_1                                  u:object_r:oem_nv_data_file:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator                  u:object_r:wifi-mac-generator_exec:s0
+
+# ClearKey
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[1-4]-service.clearkey                  u:object_r:hal_drm_clearkey_exec:s0
