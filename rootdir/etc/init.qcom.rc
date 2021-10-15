@@ -353,6 +353,13 @@ on boot
     chown system system /sys/devices/virtual/graphics/fb0/srgb
     chown system system /sys/devices/virtual/graphics/fb0/dci_p3
 
+    # init.qcom.sh
+    write /proc/sys/net/ipv6/conf/default/accept_ra_defrtr 1
+
+    # Start RILs
+    start vendor.qcrild
+    start vendor.qcrild2
+
 on charger
     start dashd
     start vendor.power_off_alarm
@@ -576,12 +583,6 @@ service vendor.qseecomd /vendor/bin/qseecomd
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
-
-service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
-    class main
-    user radio
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
