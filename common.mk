@@ -178,13 +178,17 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl:64 \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.composer@2.3-impl \
+    android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.configstore@1.0-service \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
+    android.hardware.graphics.composer@2.3-impl \
+    android.hardware.graphics.composer@2.3-service \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
     libdisplayconfig \
@@ -192,9 +196,38 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     memtrack.msm8998
 
+# Composer
+# Everything prior to kernel 4.19 uses the sm8150 display HAL
 PRODUCT_PACKAGES += \
-    vendor.display.config@1.9 \
-    vendor.display.config@1.9_vendor
+    vendor.qti.hardware.display.composer-service
+
+# Linked by Adreno/EGL blobs for fallback if 3.0 doesn't exist
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.mapper@2.0.vendor
+
+# android.hardware.graphics.allocator@3.0::IAllocator, and
+# android.hardware.graphics.allocator@4.0::IAllocator if
+# TARGET_USES_GRALLOC4 is not explicitly set to `false`:
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor
+
+PRODUCT_PACKAGES += \
+    vendor.display.config@1.10 \
+    vendor.display.config@1.10_vendor
+
+# Display properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.demo.hdmirotationlock=false \
+    persist.sys.sf.color_saturation=1.0 \
+    vendor.display.disable_inline_rotator=1 \
+    vendor.display.enable_null_display=0 \
+    vendor.display.disable_excl_rect=0 \
+    vendor.display.comp_mask=0 \
+    vendor.display.enable_default_color_mode=1 \
+    vendor.display.enable_optimize_refresh=1 \
+    vendor.display.disable_ui_3d_tonemap=1
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/FOSSConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/FOSSConfig.xml
@@ -446,8 +479,10 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/oneplus
+    hardware/oneplus \
+    vendor/qcom/opensource/core-utils \
+    vendor/qcom/opensource/display/ \
+    vendor/qcom/opensource/display-commonsys-intf/
 
 # Tetheroffload
 PRODUCT_PACKAGES += \
