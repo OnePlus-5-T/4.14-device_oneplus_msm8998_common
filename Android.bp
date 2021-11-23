@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-soong_namespace {
-    imports: ["hardware/google/pixel"],
 cc_prebuilt_binary {
     name: "init.qcom.slpistart.sh",
     srcs: ["rootdir/bin/init.qcom.slpistart.sh"],
