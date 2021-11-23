@@ -107,3 +107,6 @@
 
 # ClearKey
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[1-4]-service.clearkey                  u:object_r:hal_drm_clearkey_exec:s0
+
+/(system/vendor|vendor)/bin/init\.qcom\.slpistart\.sh                                        u:object_r:init-qcom-slpistart-sh_exec:s0
+/(system/vendor|vendor)/bin/init\.qcom\.adspstart\.sh                                        u:object_r:init-qcom-adspstart-sh_exec:s0

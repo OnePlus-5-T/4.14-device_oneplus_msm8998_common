@@ -14,4 +14,20 @@
 
 soong_namespace {
     imports: ["hardware/google/pixel"],
+cc_prebuilt_binary {
+    name: "init.qcom.slpistart.sh",
+    srcs: ["rootdir/bin/init.qcom.slpistart.sh"],
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_binary {
+    name: "init.qcom.adspstart.sh",
+    srcs: ["rootdir/bin/init.qcom.adspstart.sh"],
+    vendor: true,
+    strip: {
+        none: true,
+    },
 }
