@@ -278,7 +278,7 @@ firmware_directories /vendor/firmware_mnt/image/
 
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
-/dev/nq-nci               0660    nfc         nfc
+/dev/pn54x                0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
 
 # UIO devices
