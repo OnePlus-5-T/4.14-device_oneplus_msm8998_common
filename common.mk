@@ -95,7 +95,13 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.2-impl:32 \
     audio.a2dp.default \
-    audio.primary.msm8998 \
+    audio.primary.msm8998
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.bluetooth.default \
+    audio.hearing_aid.default \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
@@ -108,6 +114,29 @@ PRODUCT_PACKAGES += \
     libspkrprot \
     libssrec \
     libvolumelistener
+
+# For audio.primary
+PRODUCT_PACKAGES += \
+    libtinyalsa \
+    libaudioroute \
+    tinymix
+
+# Audio effects
+PRODUCT_PACKAGES += \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcompostprocbundle
+
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.dsp@1.0 \
+    liblistenhardware \
+    libacdbloader \
+    libacdbmapper \
+    libacdbrtac \
+    libadiertac \
+    libadsprpc \
+    libaudcal \
+    libaudioalsa
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -487,3 +516,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Disable APEX compression
 # Keep this after including updatable_apex.mk
 PRODUCT_COMPRESSED_APEX := false
+
+# Inherit audio products for msm8998
+$(call inherit-product, vendor/qcom/opensource/audio-hal/primary-hal/configs/msm8998/msm8998.mk)
