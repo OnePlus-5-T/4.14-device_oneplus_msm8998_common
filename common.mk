@@ -379,7 +379,7 @@ PRODUCT_PACKAGES += \
     SecureElement
 
 # OMX
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libhypv_intercept \
     libmm-omxcore \
