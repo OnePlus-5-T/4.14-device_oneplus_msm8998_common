@@ -379,19 +379,21 @@ PRODUCT_PACKAGES += \
     SecureElement
 
 # OMX
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libhypv_intercept \
     libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
+
+# Audio encoders, not working yet
+    #libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
