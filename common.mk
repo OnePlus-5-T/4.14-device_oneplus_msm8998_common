@@ -563,6 +563,11 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
+# OSS Time service
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
+
 #PRODUCT_BOOT_JARS += \
     WfdCommon
 
