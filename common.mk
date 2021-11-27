@@ -547,6 +547,11 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
+# OSS Time service
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 

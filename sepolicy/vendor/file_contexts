@@ -53,3 +53,6 @@
 
 /bt_firmware(/.*)?                                      u:object_r:bt_firmware_file:s0
 /firmware(/.*)?                                      u:object_r:firmware_file:s0
+
+/(system/vendor|vendor)/bin/timekeep                                                         u:object_r:timekeep_exec:s0
+/data/vendor/time(/.*)?                u:object_r:timekeep_vendor_data_file:s0

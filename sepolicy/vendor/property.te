@@ -1,4 +1,5 @@
 type thermal_engine_prop, property_type;
+type vendor_timekeep_prop, vendor_property_type, property_type;
 type vendor_device_prop, property_type;
 type vendor_param_prop, property_type;
 type vendor_power_prop, property_type;

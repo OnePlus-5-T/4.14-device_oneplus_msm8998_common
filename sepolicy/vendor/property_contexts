@@ -39,3 +39,6 @@ persist.sys.assert.panic               u:object_r:radio_control_prop:s0
 
 # Thermal
 sys.thermal.                           u:object_r:thermal_engine_prop:s0
+
+# Timekeep
+persist.vendor.timeadjust              u:object_r:vendor_timekeep_prop:s0
