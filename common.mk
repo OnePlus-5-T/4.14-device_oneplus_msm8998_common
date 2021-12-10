@@ -185,9 +185,6 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.3-impl \
-    android.hardware.graphics.composer@2.3-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.configstore@1.0-service \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
@@ -195,7 +192,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    vendor.qti.hardware.display.allocator-service \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
@@ -207,16 +203,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service
 
-# Linked by Adreno/EGL blobs for fallback if 3.0 doesn't exist
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.mapper@2.0.vendor
-
 # android.hardware.graphics.allocator@3.0::IAllocator, and
 # android.hardware.graphics.allocator@4.0::IAllocator if
 # TARGET_USES_GRALLOC4 is not explicitly set to `false`:
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor
 
 PRODUCT_PACKAGES += \
