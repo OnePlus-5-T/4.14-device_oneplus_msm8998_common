@@ -410,7 +410,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.sony
+    android.hardware.power@1.3-service.oneplus_msm8998
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
@@ -488,7 +488,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/qcom/opensource/core-utils \
     vendor/qcom/opensource/display/ \
-    vendor/qcom/opensource/display-commonsys-intf/
+    vendor/qcom/opensource/display-commonsys-intf/ \
+    hardware/google/pixel
 
 # Tetheroffload
 PRODUCT_PACKAGES += \
