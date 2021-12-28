@@ -191,24 +191,17 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3-impl \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
     libdisplayconfig \
     libqdMetaData.system
 
-# Composer
-# Everything prior to kernel 4.19 uses the sm8150 display HAL
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.composer-service
-
 # android.hardware.graphics.allocator@3.0::IAllocator, and
 # android.hardware.graphics.allocator@4.0::IAllocator if
 # TARGET_USES_GRALLOC4 is not explicitly set to `false`:
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.mapper@3.0.vendor
+    vendor.qti.hardware.display.allocator-service
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.10 \
