@@ -147,7 +147,6 @@ on fs
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
 
     mount_all /vendor/etc/fstab.qcom --early
-    setprop vendor.init.earlymount.ready 1
 
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
@@ -573,6 +572,12 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     oneshot
     writepid /dev/cpuset/system-background/tasks
 
+service vendor.adsprpcd /vendor/bin/adsprpcd
+    class main
+    user media
+    group media
+    writepid /dev/cpuset/system-background/tasks
+
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class main
     user system
@@ -707,32 +712,9 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.adsprpcd /vendor/bin/adsprpcd
+service vendor.time_daemon /vendor/bin/time_daemon
     class main
-    user media
-    group media
-    disabled
-
-service vendor.slpistart_sh /vendor/bin/init.qcom.slpistart.sh
-    class core
-    user root
-    group root system
-    disabled
-    oneshot
-
-service vendor.adspstart_sh /vendor/bin/init.qcom.adspstart.sh
-    class core
-    user root
-    group root system
-    disabled
-    oneshot
-
-# Start DSP services as soon as partitions are mounted
-on property:vendor.init.earlymount.ready=1
-    start vendor.adspstart_sh
-
-on property:vendor.qcom.adspup=1
-    enable vendor.adsprpcd
-
-on property:vendor.qcom.adspup=1
-    start vendor.slpistart_sh
+    user system
+    group system
+    capabilities SYS_TIME
+    writepid /dev/cpuset/system-background/tasks
