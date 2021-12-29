@@ -190,7 +190,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
     libdisplayconfig \
-    libqdMetaData.system
+    libqdMetaData.system \
+    libtinyxml
 
 # android.hardware.graphics.allocator@3.0::IAllocator, and
 # android.hardware.graphics.allocator@4.0::IAllocator if
