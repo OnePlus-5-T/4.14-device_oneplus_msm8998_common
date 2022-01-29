@@ -540,6 +540,9 @@ PRODUCT_PACKAGES += \
     timekeep \
     TimeKeep
 
+PRODUCT_COPY_FILES += \
+    kernel/oneplus/prebuilt/Image.gz-dtb:kernel
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
