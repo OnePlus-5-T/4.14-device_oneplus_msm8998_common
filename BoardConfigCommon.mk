@@ -62,8 +62,6 @@ BOARD_KERNEL_CMDLINE += kpti=0
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_PREBUILT_KERNEL := kernel/oneplus/prebuilt/Image.gz-dtb
-TARGET_KERNEL_VERSION := 4.14
 
 SOONG_CONFIG_NAMESPACES += sony_qti_kernel_headers
 SOONG_CONFIG_sony_qti_kernel_headers := version

@@ -553,6 +553,9 @@ PRODUCT_PACKAGES += \
     timekeep \
     TimeKeep
 
+PRODUCT_COPY_FILES += \
+    kernel/oneplus/prebuilt/Image.gz-dtb:kernel
+
 #PRODUCT_BOOT_JARS += \
     WfdCommon
 
