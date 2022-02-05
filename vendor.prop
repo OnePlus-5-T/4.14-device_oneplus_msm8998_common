@@ -1,4 +1,5 @@
 # Bluetooth
+persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=cherokee
 
