@@ -24,6 +24,12 @@ persist.camera.stats.debugexif=3080192
 ro.charger.disable_init_blank=true
 ro.charger.enable_suspend=true
 
+# Data
+ro.vendor.use_data_netmgrd=true
+persist.data.iwlan.enable=true
+persist.vendor.data.iwlan.enable=true
+persist.vendor.data.mode=concurrent
+
 # DRM
 drm.service.enabled=true
 
@@ -44,14 +50,19 @@ ro.opengles.version=196610
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
+# RCS
+persist.rcs.supported=1
+
 # RIL
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 keyguard.no_require_sim=true
 persist.radio.multisim.config=dsds
+persist.vendor.radio.atfwd.start=true
 ril.subscription.types=NV,RUIM
 ro.com.android.dataroaming=true
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=22,20
-ro.telephony.iwlan_operation_mode=legacy
+vendor.service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
 
 # SurfaceFlinger
