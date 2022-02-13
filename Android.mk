@@ -29,6 +29,8 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter cheeseburger dumpling,$(TARGET_DEVICE)),)
 
+$(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
