@@ -465,6 +465,7 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
+    hardware/google/pixel \
     hardware/oneplus \
     vendor/qcom/opensource/core-utils \
     vendor/qcom/opensource/display/ \
