@@ -10,6 +10,9 @@
 #include <android-base/stringprintf.h>
 #include <fstream>
 
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+
 #include "Light.h"
 
 namespace android {
@@ -74,6 +77,12 @@ void Light::setButtonBacklight(const LightState& state) {
 }
 
 void Light::setRgbLight(const LightState& state, size_t index) {
+    char value[1] = {0};
+    int len = __system_property_get("persist.sys.disable.rgb", value);
+    if (len > 0) {
+        return;
+    }
+
     mLightStates.at(index) = state;
 
     LightState stateToUse = mLightStates.front();
