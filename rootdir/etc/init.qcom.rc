@@ -411,12 +411,6 @@ service vendor.adsprpcd /vendor/bin/adsprpcd
     group media
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.atfwd /vendor/bin/ATFWD-daemon
-    class main
-    user system
-    group system radio
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
