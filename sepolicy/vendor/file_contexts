@@ -47,3 +47,6 @@
 /data/vendor/oemnvitems/4678_0                                  u:object_r:oem_nv_data_file:s0
 /data/vendor/oemnvitems/4678_1                                  u:object_r:oem_nv_data_file:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator                  u:object_r:wifi-mac-generator_exec:s0
+
+/(system/vendor|vendor)/bin/timekeep                                                         u:object_r:timekeep_exec:s0
+/data/vendor/time(/.*)?                u:object_r:timekeep_vendor_data_file:s0
