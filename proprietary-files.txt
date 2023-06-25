@@ -604,9 +604,11 @@ vendor/bin/msm_irqbalance
 
 # Peripheral manager
 vendor/bin/pm-proxy
-vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
+
+# Peripheral manager service
+vendor/bin/pm-service|950d6b601c898d61250588c5cca9c9c0
 
 # Postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
