@@ -195,7 +195,6 @@ on late-fs
     start surfaceflinger
     start bootanim
     start vendor.qti.hardware.display.composer
-    start vendor.configstore-hal
 
     start vendor.qti.hardware.display.allocator
     # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
