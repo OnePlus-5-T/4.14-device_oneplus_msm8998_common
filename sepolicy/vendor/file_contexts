@@ -40,3 +40,5 @@
 
 /(system/vendor|vendor)/bin/timekeep                                                         u:object_r:timekeep_exec:s0
 /data/vendor/time(/.*)?                u:object_r:timekeep_vendor_data_file:s0
+
+/system/bin/start_log_capture                                         u:object_r:toolbox_exec:s0

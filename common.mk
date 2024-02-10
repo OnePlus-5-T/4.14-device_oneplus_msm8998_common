@@ -490,3 +490,7 @@ PRODUCT_PACKAGES += \
 # RmNet xml config file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/data/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml
+
+# You should not be here
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/start_log_capture:$(TARGET_COPY_OUT_SYSTEM)/bin/start_log_capture

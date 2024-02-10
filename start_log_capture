@@ -1,0 +1,58 @@
+#!/system/bin/sh
+
+# make sure that /cache is mounted
+while true; do
+    if grep -qs '/cache' /proc/mounts; then
+        break  # cache is now mounted
+    fi
+    sleep 1 # cache is not mounted, wait 1 second
+done
+
+# get boot date
+current_date=$(date +"%Y-%m-%d-%H-%M")
+
+# Generate file name
+# Start from 'base_name' and, if the file already exists, add a '_1', '_2' and so on
+generate_unique_filename() {
+    local base_name="$1"
+    local suffix=""
+    local file_name="$base_name"
+
+    while [[ -e "$file_name" ]]; do
+        ((counter++))
+        suffix="_$counter"
+        file_name="${base_name}${suffix}.txt"
+    done
+
+    echo "$file_name"
+}
+
+# store logcat
+logcat_base_file_name="logcat_${current_date}.txt"
+logcat_file_name=$(generate_unique_filename "$logcat_base_file_name")
+
+/system/bin/logcat -f /cache/${logcat_file_name} &
+
+# store dmesg
+dmesg_base_file_name="dmesg_${current_date}.txt"
+dmesg_file_name=$(generate_unique_filename "$dmesg_base_file_name")
+
+/system/bin/dmesg -w > /cache/${dmesg_file_name} &
+
+# delete files larger than 20MB
+check_and_remove_large_files() {
+    local file_name="$1"
+    local max_size_mb=20
+
+    if [[ $(stat -c %s "$file_name") -gt $((max_size_mb * 1024 * 1024)) ]]; then
+        rm "$file_name"
+    fi
+}
+
+# if we exists, both logcat and dmesg are killed
+while true; do
+	check_and_remove_large_files "$logcat_file_name"
+	check_and_remove_large_files "$dmesg_file_name"
+	sleep 10
+done
+

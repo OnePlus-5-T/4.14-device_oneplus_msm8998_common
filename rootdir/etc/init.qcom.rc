@@ -205,6 +205,7 @@ on late-fs
     # Mount RW partitions which need to run fsck
     mount_all /vendor/etc/fstab.qcom --late
 
+    start start_log_capture
 on post-fs-data
     # Nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
@@ -540,3 +541,11 @@ service vendor.ipacm /vendor/bin/ipacm
     class main
     user radio
     group radio inet
+
+service start_log_capture /system/bin/sh /system/bin/start_log_capture
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:ueventd:s0
