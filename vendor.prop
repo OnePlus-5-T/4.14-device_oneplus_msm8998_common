@@ -101,6 +101,9 @@ vendor.display.enable_default_color_mode=1
 vendor.gralloc.enable_fb_ubwc=1
 ro.surface_flinger.enable_frame_rate_override=false
 
+# Incremental FS
+ro.incremental.enable=true
+
 # Media
 vendor.vidc.debug.level=1
 
