@@ -330,6 +330,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     OnePlusPocketMode
 
+# power HAL
+-include hardware/google/pixel/power-libperfmgr/aidl/device.mk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
