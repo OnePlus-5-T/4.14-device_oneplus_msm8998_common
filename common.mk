@@ -331,7 +331,7 @@ PRODUCT_PACKAGES += \
     OnePlusPocketMode
 
 # Power
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.power-service.oneplus_msm8998-libperfmgr
 
 PRODUCT_COPY_FILES += \
